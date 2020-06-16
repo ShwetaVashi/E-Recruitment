@@ -1,0 +1,83 @@
+<div class="row" style="height:675px;" >
+    <div class="col-md-5">
+        <center>
+        <img style="img img-responsive" src="/linked.jpg" height="400" width="520"/>
+        </center>
+    </div>
+    <div class="col-md-5" style="margin-left: 100px;">
+        <h1>Sign Up</h1>
+        {{#if hasErrors }}
+            <div class="alert alert-danger">
+                {{#each messages}}
+                    <p>{{ this }}</p>
+                {{/each}}
+            </div>
+        {{/if}}
+        <form action="/user/signup" method="post" enctype="multipart/form-data">
+            <div class="form-group">
+                <label for="email" >First Name</label>
+                <input type="text" required="required" id="fname" class="form-control" name="fname">
+            </div>
+            <div class="form-group" >
+                <label for="email" >Last Name</label>
+                <input type="text" required="required" id="lname" class="form-control" name="lname">
+            </div>
+            <div class="form-group">
+                <label for="email" >E-Mail</label>
+                <input type="email" required="required" id="email" class="form-control" name="email">
+            </div>
+            <div class="form-group">
+                <label for="password">Password</label>
+                <input type="password" required="required" id="password" class="form-control" name="password">
+            </div>
+            <div class="form-group">
+                <label for="gender">Gender</label>
+             <select value="gender" class="form-control" name="gender">
+                <option value="M" name="Male" id="Male" class="form-control">Male</option>
+                <option value="F" name="Female" id="Female" class="form-control">Female</option>
+            </select>
+           
+             </div>
+             <div class="form-group">
+                <label for="contno">Contact Number</label>
+                <input type="number" id="contno" class="form-control" name="contactno">
+            </div>
+            <div class="form-group">
+                <label for="image">Profile Picture</label>
+                <input type="file" id="file1" class="form-control" name="file1">
+            </div>
+             <div class="form-group">
+                <label for="contno">Education</label>
+                <input type="text" id="education" class="form-control" name="education">
+            </div>
+             <div class="form-group">  
+               <label for="contno">Work Experience</label>
+            <select value="workexperience" class="form-control" name="workexperience">
+                <option value="0-2" name="0_2years" id="0_2years" class="form-control">0-2 years</option>
+                <option value="2-4" name="2_4years" id="2_4years" class="form-control">2-4 years</option>
+                <option value="4+" name="morethan4years" id="morethan4years" class="form-control">more than 4 years</option>
+            </select>
+            </div>
+            <div class="form-group">
+                <label for="contno">Area of Interest</label>
+                <input type="text" id="areaofinterest" class="form-control" name="areaofinterest">
+            </div>            
+            <div class="form-group">
+                <label for="contno">Skills</label>
+                <input type="text" id="skills" class="form-control" name="skills">
+            </div>            
+             <div class="form-group">
+                <label for="contno">Tools and Technology</label>
+                <input type="text" id="toolsandtechnology" class="form-control" name="toolsandtechnology">
+            </div>    
+            <div class="form-group">  
+               <label for="contno">Designation</label>
+            <select value="Designation" class="form-control" name="usertype">
+                <option value="0" name="HR" id="HR" class="form-control">HR</option>
+                <option value="1" name="Candidate" id="Candidate" class="form-control">Candidate</option>
+            </select>
+            </div>
+            <input type="submit" class="btn btn-primary" value="Sign Up">
+        </form>
+    </div>
+</div>

@@ -1,0 +1,57 @@
+
+<table class="table table-striped" >
+  <thead>
+
+    <tr>
+      <th>First Name</th>
+      <th>Last Name</th>
+      <th>Email id</th>
+      <th>Contact No</th>
+      <th>Education</th>
+      <th>Work exprerience</th>
+      <th>Area of Interest</th>
+      <th>Skills</th>
+      <th>Tools & Technology</th>
+       
+    </tr>
+  </thead>
+  <tbody>
+    {{#each list}}
+    <tr>
+      <td>{{this.fname}}</td>
+      <td>{{this.lname}}</td>
+      <td>{{this.email}}</td>>
+      <td>{{this.contactno}}</td>
+      <td>{{this.education}}</td>
+      <td>{{this.work_experience}}</td>
+      <td>{{this.areaofinterest}}</td>
+      <td>{{this.skills}}</td>
+      <td>{{this.toolsandtechnology}}</td>
+
+    </tr>
+    {{/each}}
+  </tbody>
+</table>
+
+
+
+
+
+{{!-- <div class="row">
+    <div class="col-md-10 col-md-offset-1">
+        <h1>User Profile</h1>
+    </div>
+</div> 
+
+<div id="mySidebar" class="sidebar">
+  <a href="javascript:void(0)" class="closebtn" onclick="closeNav()">&times;</a>
+  <a href="#">About</a>
+  <a href="#">Services</a>
+  <a href="#">Clients</a>
+  <a href="#">Contact</a>
+</div>
+
+<div id="main">
+  <button class="openbtn" onclick="openNav()">&#9776; Open Sidebar</button>
+  
+</div> --}}

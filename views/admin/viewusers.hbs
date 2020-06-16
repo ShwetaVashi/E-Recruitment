@@ -1,0 +1,296 @@
+
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="" />
+    <meta name="keywords" content="" />
+	<title>Winku Social Network Toolkit</title>
+    <link rel="icon" href="/images/fav.png" type="image/png" sizes="16x16"> 
+    
+    <link rel="stylesheet" href="/css/main.min.css">
+    <link rel="stylesheet" href="/css/style.css">
+    <link rel="stylesheet" href="/css/color.css">
+    <link rel="stylesheet" href="/css/responsive.css">
+
+</head>
+
+
+{{!-- <table class="table table-striped" >
+  <thead>
+
+    <tr>
+      <th>First Name</th>
+      <th>Last Name</th>
+      <th>Email id</th>
+      <th>Gender</th>
+      <th>Contact No</th>
+      <th>Education</th>
+      <th>Work exprerience</th>
+      <th>Area of Interest</th>
+      <th>Skills</th>
+      <th>Tools & Technology</th>
+      <th>Designation</th>
+       
+    </tr>
+  </thead>
+  <tbody>
+    {{#each list}}
+    <tr>
+      <td>{{this.fname}}</td>
+      <td>{{this.lname}}</td>
+      <td>{{this.email}}</td>
+      <td>{{this.gender}}</td>
+      <td>{{this.contactno}}</td>
+      <td>{{this.education}}</td>
+      <td>{{this.workexperience}}</td>
+      <td>{{this.areaofinterest}}</td>
+      <td>{{this.skills}}</td>
+      <td>{{this.toolsandtechnology}}</td>
+      <td>{{this.usertype}}</td>
+
+    </tr>
+    {{/each}}
+  </tbody>
+</table> --}}
+
+
+
+
+
+
+<ul class="nav nav-tabs" id="myTab" role="tablist">
+  <li class="nav-item">
+    <a class="nav-link active" id="home-tab" data-toggle="tab" href="#home" role="tab" aria-controls="home" aria-selected="true">HR</a>
+  </li>
+  <li class="nav-item">
+    <a class="nav-link" id="profile-tab" data-toggle="tab" href="#profile" role="tab" aria-controls="profile" aria-selected="false">Candidate</a>
+  </li>
+  <li class="nav-item">
+    <a class="nav-link" id="profile-tab" data-toggle="tab" href="#post" role="tab" aria-controls="post" aria-selected="false">View Post</a>
+  </li>
+</ul>
+<div class="tab-content" id="myTabContent">
+  <div class="tab-pane fade show active" id="home" role="tabpanel" aria-labelledby="home-tab">
+
+<body>
+  <h2 style="text-align: center;font-weight:bold;font-size: 40px;">HR Details</h2>
+  <div class="container" >
+
+<table id="example" class="table table-sm table-responsive table-striped table-bordered" >
+        <thead>
+            <tr>
+                <th>First Name</th>
+                <th>Last Name</th>
+                <th>Email id</th>
+                <th>Gender</th>
+                <th>Contact No</th>
+                <th>Education</th>
+                <th>Work exprerience</th>
+                <th>Area of Interest</th>
+                <th>Skills</th>
+                <th>Tools & Technology</th>
+                
+                <th>Operation</th>
+                <th>View document</th>
+           </tr>
+        </thead>
+        <tbody>
+          {{# each list }}
+          {{#is this.usertype '0'}}
+            <tr>
+                <td>{{this.fname}}</td>
+                <td>{{this.lname}}</td>
+                <td>{{this.email}}</td>
+                <td>{{this.gender}}</td>
+                <td>{{this.contactno}}</td>
+                <td>{{this.education}}</td>
+                <td>{{this.workexperience}}</td>
+                <td>{{this.areaofinterest}}</td>
+                <td>{{this.skills}}</td>
+                <td>{{this.toolsandtechnology}}</td>
+                <td>
+                
+                          {{!-- <td><img src='/upload/{{this.imagefile}}' style="width: 50px; height: 50px;"></td> --}}
+               <a href="/Update/{{this._id}}"><i class="fa fa-edit fa-lg" style="color: blue;"></i></a>
+                    {{#is this.status "1"}}
+                    <a href="/Delete/{{this._id}}" onclick="return confirm('Are you sure to deactive this user?')"><i class="fa fa-toggle-on" aria-hidden="true" style="color: blue;"></i></a>
+                    {{/is}}
+                    
+                    {{#is this.status "0"}}
+                    <a href="/Active/{{this._id}}" onclick="return confirm('Are you sure to activate this user?')"><i class="fa fa-toggle-off" aria-hidden="true" style="color: red;"></i></a>
+                    {{/is}}
+                    </td>
+                <td>
+
+                  <form action="/viewhr" method="POST">
+                  <input type="hidden" value="{{this._id}}" name="document" id="document">
+                  <input type="submit" value="View Document" id="viewdocument" name="viewdocument" class="form-control">
+                  </form>
+                </td>
+            </tr>
+            {{/is}}
+            {{/each}}
+
+        </tbody>
+    </table>
+  </div>
+
+<script>
+    $(document).ready(function() {
+    $('#example').DataTable();
+} );
+</script>
+</body>
+
+
+
+  </div>
+  <div class="tab-pane fade" id="profile" role="tabpanel" aria-labelledby="profile-tab">
+
+    <body>
+  <h2 style="text-align: center;font-weight:bold;font-size: 40px;">Candidate Details</h2>
+  <div class="container" >
+
+    <table id="example" class="table table-sm table-responsive table-striped table-bordered" >
+        <thead>
+            <tr>
+                <th>First Name</th>
+                <th>Last Name</th>
+                <th>Email id</th>
+                <th>Gender</th>
+                <th>Contact No</th>
+                <th>Education</th>
+                <th>Work exprerience</th>
+                <th>Area of Interest</th>
+                <th>Skills</th>
+                <th>Tools & Technology</th>
+                <th>Operation</th>
+                
+           </tr>
+        </thead>
+        <tbody>
+         
+          
+          {{# each list }}
+          {{#is this.usertype "1"}}
+         
+            <tr>
+                <td>{{this.fname}}</td>
+                <td>{{this.lname}}</td>
+                <td>{{this.email}}</td>
+                <td>{{this.gender}}</td>
+                <td>{{this.contactno}}</td>
+                <td>{{this.education}}</td>
+                <td>{{this.workexperience}}</td>
+                <td>{{this.areaofinterest}}</td>
+                <td>{{this.skills}}</td>
+                <td>{{this.toolsandtechnology}}</td>
+                
+                          {{!-- <td><img src='/upload/{{this.imagefile}}' style="width: 50px; height: 50px;"></td> --}}
+                <td>
+                    <a href="/Update/{{this._id}}"><i class="fa fa-edit fa-lg" style="color: blue;"></i></a>
+                    {{#is this.status "1"}}
+                    <a href="/Delete/{{this._id}}" onclick="return confirm('Are you sure to deactive this user?')"><i class="fa fa-toggle-on" aria-hidden="true" style="color: blue;"></i></a>
+                    {{/is}}
+                    
+                    {{#is this.status "0"}}
+                    <a href="/Active/{{this._id}}" onclick="return confirm('Are you sure to activate this user?')"><i class="fa fa-toggle-off" aria-hidden="true" style="color: red;"></i></a>
+                    {{/is}}
+                </td> 
+                
+            </tr>
+            {{/is}}
+            {{/each}}
+            
+            
+        </tbody>
+    </table>
+    
+  </div>
+
+<script>
+    $(document).ready(function() {
+    $('#example').DataTable();
+} );
+</script>
+</body>
+
+  </div>
+
+
+ <div class="tab-pane fade" id="post" role="tabpanel" aria-labelledby="profile-tab">
+
+  <h2 style="text-align: center;font-weight:bold;font-size: 40px;">View Post</h2>
+  <div class="container row" >
+    <div class="col-lg-5"> </div>
+  <div class="col-lg-6">
+							
+    <div class="loadMore">
+								{{#if list1}}
+								{{# each list1}}
+								
+                
+								<div class="central-meta item">
+									<div class="user-post"> 
+									 
+										<div class="friend-info">
+                      <div class="row ">
+                  		<div class="float-left col-md">
+                        	<p>{{this.uid.fname}}</p>
+                      </div>
+										
+                      <div class=" col-md">
+                        <form action="/deletepost" method="POST"> 
+                            <input type="hidden" name="deletepostid" value="{{this._id}}" id="deletepostid">
+                            <button type="submit" class="btn float-right" ><i class="fa fa-trash" aria-hidden="true" ></i></button>
+                        </form>
+                      </div>
+											
+											</div>
+											<figure>
+												
+												<img  src="uploads/{{this.uid.imagefile}}"  >
+										
+                    	</figure>
+											
+											<div class="friend-name">
+												<ins>{{this.title}}</ins>
+												<span>{{this.cdate}}</span>
+											</div>
+											<div class="post-meta">
+												<img src="uploads/{{this.imagefile}}" >
+												
+												<div class="description">
+													
+													<p>
+														{{this.description}}
+													</p>
+													
+												</div>
+											</div>
+										</div>
+										
+									</div>
+								</div>
+								
+								{{/each}}
+								
+								{{else}}
+								<h3>No Post to show!!</h3>
+								{{/if}}
+								
+						</div>	
+    
+    </div>
+  </div>
+
+
+  </div>
+ 
+
+
+</div>
+
+
+
+

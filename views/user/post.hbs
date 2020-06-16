@@ -1,0 +1,184 @@
+<head>
+  <title>Bootstrap Example</title>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  {{!-- <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css"> --}}
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
+  {{!-- <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js"></script> --}}
+</head>
+<body>
+
+<div class="container">
+  {{!-- <h2>Fading Modal</h2>
+  <p>Add the "fade" class to the modal container if you want the modal to fade in on open and fade out on close.</p> --}}
+
+  <!-- Button to Open the Modal -->
+  <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#myModal">
+    Upload Post
+  </button>
+
+  <!-- The Modal -->
+  <div class="modal fade" id="myModal">
+    <div class="modal-dialog">
+      <div class="modal-content">
+      
+        <!-- Modal Header -->
+        <div class="modal-header">
+          <h4 class="modal-title">Add Post</h4>
+          <button type="button" class="close" data-dismiss="modal">&times;</button>
+        </div>
+        
+        <!-- Modal body -->
+        <div class="modal-body">
+         <form action="/user/sample" method="post" id="insert_form" enctype="multipart/form-data">
+            <div class="form-group">
+                <label for="image">Photo</label>
+                <input type="file" id="filee" class="form-control" name="filee">
+            </div> 
+            <div class="form-group">
+                {{!-- <label for="title">Title</label> --}}
+                <input type="text" id="title" class="form-control" name="title" placeholder="Title">
+            </div>
+            <div class="form-group">
+                {{!-- <label for="title">Title</label> --}}
+                <input type="text" id="skill" class="form-control" name="skill" placeholder="Skills">
+            </div>
+            <div class="form-group">
+                {{!-- <label for="title">Title</label> --}}
+                <input type="text" id="designation" class="form-control" name="designation" placeholder="Designation">
+            </div>
+            <div class="form-group">
+                {{!-- <label for="email">Write something here</label> --}}
+                <input type="text" id="description" class="form-control" name="description" placeholder="Write something here">
+            </div>
+            
+            
+                <button type="submit" class="btn btn-primary" >post</button>
+          </form>
+        </div>
+        
+        <!-- Modal footer -->
+        <div class="modal-footer">
+          <button type="button" class="btn btn-danger" data-dismiss="modal">Close</button>
+        </div>
+        
+      </div>
+    </div>
+  </div>
+  
+</div>
+
+</body>
+</html>
+
+
+
+<script type="text/javascript">
+  document.getElementById('date').value = Date();
+</script>
+
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="" />
+    <meta name="keywords" content="" />
+	<title>Winku Social Network Toolkit</title>
+    <link rel="icon" href="/images/fav.png" type="image/png" sizes="16x16"> 
+    
+    <link rel="stylesheet" href="/css/main.min.css">
+    <link rel="stylesheet" href="/css/style.css">
+    <link rel="stylesheet" href="/css/color.css">
+    <link rel="stylesheet" href="/css/responsive.css">
+
+</head>
+<body>
+<!--<div class="se-pre-con"></div>-->
+<div class="theme-layout">
+	<div class="postoverlay"></div>
+	<div class="responsive-header">
+		<div class="mh-head first Sticky">
+			<span class="mh-btns-left">
+				<a class="" href="#menu"><i class="fa fa-align-justify"></i></a>
+			</span>
+			<span class="mh-text">
+				<a href="newsfeed.html" title=""><img src="/images/logo2.png" alt=""></a>
+			</span>
+			<span class="mh-btns-right">
+				<a class="fa fa-sliders" href="#shoppingbag"></a>
+			</span>
+		</div>
+		<div class="mh-head second">
+			<form class="mh-form">
+				<input placeholder="search" />
+				<a href="#/" class="fa fa-search"></a>
+			</form>
+		</div>
+		
+	</div>
+	<section>
+		<div class="gap gray-bg">
+			<div class="container">
+				<div class="row">
+					<div class="col-lg-9">
+						<div class="row merged20" id="page-contents">
+						
+							
+								<div class="loadMore">
+								{{#if list}}
+								{{# each list}}
+								<div class="central-meta item">
+									<div class="user-post">
+										<div class="friend-info">
+											<figure>
+												<img src="uploads/{{this.imagefile}}" alt="">
+											</figure>
+											<div class="friend-name">
+												<ins><a href="time-line.html" title="">{{this.title}}</a></ins>
+												<span>{{this.cdate}}</span>
+											</div>
+											<div class="post-meta">
+												<img src="uploads/{{this.imagefile}}" alt="">
+												
+												<div class="description">
+													
+													<p>
+														{{this.description}}
+													</p>
+                          
+												</div>
+											</div>
+										</div>
+									</div>
+								</div>
+								{{/each}}
+								{{else}}
+								<h3>No Post to show!!</h3>
+								{{/if}}
+							<div class="col-lg-4">
+								<aside class="sidebar static" >
+									<div class="widget">
+										<h4 class="widget-title">Shweta Vashi</h4>	
+										<div class="your-page">
+											<figure>
+												<a href="#" title=""><img src="/images/resources/friend-avatar9.jpg" alt=""></a>
+											</figure>
+											<div class="page-meta">
+												<p style="color: black;"> Education </p>
+												<p>Integrated MSc Information Technology</p>
+												<p style="color: black;">Area of Interest</p>
+												<p>Mobile Application Development</p>
+												<p style="color: black;">Skills</p>
+												<p>LeaderShip</p>
+												{{!-- <a href="#" title="" class="underline">MSc Information Technology</a> --}}
+												{{!-- <span><i class="ti-comment"></i><a href="insight.html" title="">Messages <em>9</em></a></span>
+												<span><i class="ti-bell"></i><a href="insight.html" title="">Notifications <em>2</em></a></span> --}}
+											</div>
+              </div>
+	
+	<script data-cfasync="false" src="../../cdn-cgi/scripts/5c5dd728/cloudflare-static/email-decode.min.js"></script><script src="js/main.min.js"></script>
+	<script src="/js/script.js"></script>
+	<script src="/js/map-init.js"></script>
+	<script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyA8c55_YHLvDHGACkQscgbGLtLRdxBDCfI"></script>
+
+</body>	

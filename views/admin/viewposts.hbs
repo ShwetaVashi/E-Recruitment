@@ -1,0 +1,45 @@
+<div class="loadMore">
+								{{#if list}}
+								{{# each list}}
+								
+								<div class="central-meta item">
+									<div class="user-post"> 
+									 
+										<div class="friend-info">
+											
+											<p>{{this.uid.fname}}</p>
+											
+											<figure>
+												
+												<img src="uploads/{{this.imagefile}}" >
+											</figure>
+											
+											<div class="friend-name">
+												<ins><a href="time-line.html" title="">{{this.title}}</a></ins>
+												<span>{{this.cdate}}</span>
+											</div>
+											<div class="post-meta">
+												<img src="uploads/{{this.imagefile}}"  >
+												
+												<div class="description">
+													
+													<p>
+														{{this.description}}
+													</p>
+													<form action="#" method="POST">
+                           						 <input type="submit" id="apply" name="apply" value="Apply" class="form-control"/>
+                         						 </form>
+												</div>
+											</div>
+										</div>
+										
+									</div>
+								</div>
+								
+								{{/each}}
+								
+								{{else}}
+								<h3>No Post to show!!</h3>
+								{{/if}}
+								
+						</div>	

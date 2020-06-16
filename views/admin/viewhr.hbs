@@ -1,0 +1,30 @@
+
+
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <title>HR</title>
+    <style>
+        .container{padding: 30px;}
+    </style>    
+</head>
+<body>
+    <div class="container">
+        {{# each list}}
+        <form action="/verification" method="POST" >
+        
+        <input type="hidden" name="useridd" id="useridd" value="{{this.userid}}"> 
+        {{#is this.docstatus '0'}}
+        <input type = "submit" class="btn btn-primary" value="Accept">
+        {{/is}}
+        {{#is this.docstatus '1'}}
+        <h3>Accepted</h3>
+        {{/is}}
+        </form> 
+        <embed src="uploads/{{this.imagefile}}" type="application/pdf" width="100%" height="600px" />
+        
+        {{/each}}
+    </div>
+</body>
+</html>
